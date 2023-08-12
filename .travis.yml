@@ -1,0 +1,16 @@
+sudo: required
+language: generic
+services:
+  - docker
+
+before_install: 
+  - docker build -t motpansergiu/react-text -f ./client/Dockerfile.dev ./client
+
+script: 
+ - docker run -e CI=true motpansergiu/react-test npm test
+
+after_success: 
+  - docker build -t motpansergiu/multi-client ./client
+  - docker build -t motpansergiu/multi-nginx ./nginx
+  - docker build -t motpansergiu/multi-server ./server
+  - docker build -t motpansergiu/multi-worker ./worker
