@@ -14,3 +14,10 @@ after_success:
   - docker build -t motpansergiu/multi-nginx ./nginx
   - docker build -t motpansergiu/multi-server ./server
   - docker build -t motpansergiu/multi-worker ./worker
+  # Login to docker hub
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # push images to docker hub
+  - docker push motpansergiu/multi-client
+  - docker push motpansergiu/multi-nginx
+  - docker push motpansergiu/multi-server
+  - docker push motpansergiu/multi-worker
