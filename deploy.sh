@@ -1,6 +1,6 @@
-docker build -t motpansergiu/multi-client:latest -t motpansergiu/multi-client:$SHA ./client/Dockerfile ./client
-docker build -t motpansergiu/multi-server:latest -t motpansergiu/multi-server:$SHA ./server/Dockerfile ./server
-docker build -t motpansergiu/multi-worker:latest -t motpansergiu/multi-worker:$SHA ./worker/Dockerfile ./worker
+docker build -t motpansergiu/multi-client:latest -t motpansergiu/multi-client:$SHA ./client
+docker build -t motpansergiu/multi-server:latest -t motpansergiu/multi-server:$SHA ./server
+docker build -t motpansergiu/multi-worker:latest -t motpansergiu/multi-worker:$SHA ./worker
 
 docker push motpansergiu/multi-client:latest
 docker push motpansergiu/multi-server:latest
